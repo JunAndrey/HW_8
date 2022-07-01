@@ -2,7 +2,8 @@ import requests
 import json
 from pprint import pprint
 
-
+import datetime,time
+from datetime import timedelta
 
 response = requests.get('https://akabab.github.io/superhero-api/api/all.json')
 all_json = json.loads(response.text)
@@ -22,7 +23,7 @@ super_hero = ['Hulk', 'Captain America', 'Thanos']
 super_hero_compare(super_hero)
 
 """Прога для загрузки файлов на ЯндексДиск"""
-TOKEN = '...'
+TOKEN = 'AQAAAABieK6SAADLW2JFXvAatUqGgJ6-cz9hs_w'
 headers = {'Content-Type': 'application/json', 'Accept': 'application/json', 'Authorization': f'OAuth {TOKEN}'}
 class YandexDisk:
     def __init__(self, token):
@@ -50,4 +51,16 @@ if __name__ == '__main__':
     ya = YandexDisk(token=TOKEN)
     pprint(ya.get_my_files_name())
     ya.upload_files(disk_file_path="C\\Users\\Андрей\\PycharmProjects\\new_project\\test.txt", filename="test.txt")
+
+day = 2
+today = (int(time.time()))
+print(today)
+two_days_before = (int(time.time()) - 86400*day)
+print(two_days_before)
+url = "https://api.stackexchange.com/2.3/questions"
+params = {'order': 'desc', 'sort': 'activity', 'fromdate': two_days_before, 'todate': today, 'tagged': 'python', 'site': 'stackoverflow'}
+responce = requests.get(url, params=params)
+one_json = json.loads(responce.text)
+pprint(one_json)
+
 
