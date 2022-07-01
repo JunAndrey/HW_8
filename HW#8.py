@@ -23,7 +23,7 @@ super_hero = ['Hulk', 'Captain America', 'Thanos']
 super_hero_compare(super_hero)
 
 """Прога для загрузки файлов на ЯндексДиск"""
-TOKEN = 'AQAAAABieK6SAADLW2JFXvAatUqGgJ6-cz9hs_w'
+TOKEN = '...'
 headers = {'Content-Type': 'application/json', 'Accept': 'application/json', 'Authorization': f'OAuth {TOKEN}'}
 class YandexDisk:
     def __init__(self, token):
